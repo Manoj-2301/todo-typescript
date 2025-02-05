@@ -21,7 +21,7 @@ export interface TaskType{
 
 
 export interface AddProps {
-  setTasks: (task: TaskType[])=>void;
+  setTasks: (tasks: TaskType[])=>void;
   tasks: TaskType[];
   updateValue: TaskType;
   setIsFormOpen:any;

@@ -7,8 +7,6 @@ import { useEffect } from "react"
 import React from "react";
 import { AddProps, TaskType } from "../Component1/Add";
 
-
-
 const FormModal = ({ setTasks, tasks, setIsFormOpen, updateValue, setIsPopOpen }:AddProps) => {
   const schema = yup.object().shape({
     task: yup.string().required(),
