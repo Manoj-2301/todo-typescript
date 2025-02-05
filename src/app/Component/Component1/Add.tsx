@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import {useEffect, useState } from "react";
 import Image from "next/image";
 import { FaPlus } from "react-icons/fa";
 import Form from "../Component2/form";
@@ -8,7 +8,8 @@ import "./style.scss";
 import Task from "../Task";
 import React from "react";
 
-export interface TaskType {
+export interface TaskType{
+  map: any;
   strike: boolean;
   id: number;
   task: string;
@@ -18,16 +19,18 @@ export interface TaskType {
   extra: string;
 }
 
-export interface AddProps {
-  setTasks: TaskType;
-  tasks: TaskType;
-  updateValue: TaskType;
-}
 
+export interface AddProps {
+  setTasks: (task: TaskType[])=>void;
+  tasks: TaskType[];
+  updateValue: TaskType;
+  setIsFormOpen:any;
+  setIsPopOpen:any;
+  }
 
 const Add = ({ setTasks, tasks }: AddProps) => {
   const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
-  const [isPopOpen, setIsPopOpen] = useState<number | null | boolean>(null);
+  const [isPopOpen, setIsPopOpen] = useState<string | null | boolean | number>(null);
   const [updateValue, setUpdateValue] = useState<TaskType | null>(null);
 
   // Function to open form for creating a new task
@@ -87,7 +90,7 @@ const Add = ({ setTasks, tasks }: AddProps) => {
             setIsFormOpen={setIsFormOpen}
             updateValue={updateValue}
             setIsPopOpen={setIsPopOpen}
-          />
+           />
         </div>
       )}
     </div>
